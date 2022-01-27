@@ -1,11 +1,12 @@
 import 'dart:math';
 
+import 'package:brayny/backend/constants/constants.dart';
 import 'package:get/get.dart';
 
 class QuizController extends GetxController {
   Map<String, dynamic> _question = {};
   int random(min, max) {
-    var rn = new Random();
+    var rn = Random();
     return min + rn.nextInt(max - min);
   }
 
@@ -14,6 +15,26 @@ class QuizController extends GetxController {
     int b = random(10, 99);
     int result = a + b;
     return {'question': '$a + $b', 'result': result};
+  }
+
+  Map<String, dynamic> oppositeQuiz() {
+    int a = random(0, 4);
+    return Constants.oppositesData[a];
+  }
+
+  Map<String, dynamic> vowelQuiz() {
+    int a = random(0, 4);
+    return Constants.vowelData[a];
+  }
+
+  Map<String, dynamic> rhymingQuiz() {
+    int a = random(0, 4);
+    return Constants.rhymingData[a];
+  }
+
+  Map<String, dynamic> articlesQuiz() {
+    int a = random(0, 4);
+    return Constants.articleData[a];
   }
 
   Map<String, dynamic> multiplicationQuiz() {
@@ -40,8 +61,19 @@ class QuizController extends GetxController {
       case 'squares':
         _question = squaresQuiz();
         break;
+      case 'vowels':
+        _question = vowelQuiz();
+        break;
+      case 'rhyming words':
+        _question = rhymingQuiz();
+        break;
+      case 'opposites':
+        _question = oppositeQuiz();
+        break;
+      case 'articles':
+        _question = articlesQuiz();
+        break;
     }
-
     return _question;
   }
 

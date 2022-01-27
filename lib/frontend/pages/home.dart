@@ -40,7 +40,7 @@ class _HomeState extends State<Home> {
           child: ListView(
             shrinkWrap: true,
             children: [
-              Text(
+              const Text(
                 "Learn Maths",
                 style: TextStyle(
                   fontSize: 24,
@@ -65,7 +65,7 @@ class _HomeState extends State<Home> {
                         ).width(context.width * .7).yellow300.rounded.make());
                   }),
               SizedBox(height: 40),
-              Text(
+              const Text(
                 "Learn English",
                 style: TextStyle(
                   fontSize: 24,

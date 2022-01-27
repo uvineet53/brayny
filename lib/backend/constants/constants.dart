@@ -13,11 +13,6 @@ class Constants {
     {'question': 'What is the opposite of tall?', 'result': 'Short'},
     {'question': 'What is the opposite of thick?', 'result': 'Thin'},
     {'question': 'What is the opposite of bottom?', 'result': 'Top'},
-    {'question': 'What is the opposite of dirty?', 'result': 'Clean'},
-    {'question': 'What is the opposite of full?', 'result': 'Empty'},
-    {'question': 'What is the opposite of sad?', 'result': 'Happy'},
-    {'question': 'What is the opposite of right?', 'result': 'Wrong'},
-    {'question': 'What is the opposite of hot?', 'result': 'Cold'},
   ];
   static final articleData = [
     {'question': 'I am __ university student.', 'result': 'a'},

@@ -24,7 +24,7 @@ const englishTrack = [
   {
     'id': 0,
     'title': 'VOWELS & CONSONANTS',
-    'track': 'vowels and consonants',
+    'track': 'vowels',
     'image': "https://imgur.com/MFo2u0j.png"
   },
   {
