@@ -37,24 +37,60 @@ class _HomeState extends State<Home> {
           centerTitle: true,
         ),
         body: Center(
-          child: VxSwiper.builder(
-              itemCount: mathTrack.length,
-              enlargeCenterPage: true,
-              itemBuilder: (BuildContext context, int index) {
-                return GestureDetector(
-                    key: Key(mathTrack[index]['id'].toString()),
-                    onTap: () {
-                      Get.to(ProblemPage(
-                          track: mathTrack[index]['track'].toString()));
-                    },
-                    child: VxBox(
-                      child: mathTrack[index]['title']
-                          .toString()
-                          .text
-                          .xl2
-                          .makeCentered(),
-                    ).width(context.width * .7).yellow300.rounded.make());
-              }),
+          child: ListView(
+            shrinkWrap: true,
+            children: [
+              Text(
+                "Learn Maths",
+                style: TextStyle(
+                  fontSize: 24,
+                ),
+              ),
+              VxSwiper.builder(
+                  itemCount: mathTrack.length,
+                  enlargeCenterPage: true,
+                  itemBuilder: (BuildContext context, int index) {
+                    return GestureDetector(
+                        key: Key(mathTrack[index]['id'].toString()),
+                        onTap: () {
+                          Get.to(ProblemPage(
+                              track: mathTrack[index]['track'].toString()));
+                        },
+                        child: VxBox(
+                          child: mathTrack[index]['title']
+                              .toString()
+                              .text
+                              .xl2
+                              .makeCentered(),
+                        ).width(context.width * .7).yellow300.rounded.make());
+                  }),
+              SizedBox(height: 40),
+              Text(
+                "Learn English",
+                style: TextStyle(
+                  fontSize: 24,
+                ),
+              ),
+              VxSwiper.builder(
+                  itemCount: englishTrack.length,
+                  enlargeCenterPage: true,
+                  itemBuilder: (BuildContext context, int index) {
+                    return GestureDetector(
+                        key: Key(englishTrack[index]['id'].toString()),
+                        onTap: () {
+                          Get.to(ProblemPage(
+                              track: englishTrack[index]['track'].toString()));
+                        },
+                        child: VxBox(
+                          child: englishTrack[index]['title']
+                              .toString()
+                              .text
+                              .xl2
+                              .makeCentered(),
+                        ).width(context.width * .7).yellow300.rounded.make());
+                  }),
+            ],
+          ),
         ));
   }
 }
