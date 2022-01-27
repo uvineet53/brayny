@@ -24,7 +24,6 @@ class _ProblemPageState extends State<ProblemPage> {
   @override
   void initState() {
     question = _quizController.handlerFunction(widget.track);
-    alanController.setVisualState("quiz");
     super.initState();
   }
 
@@ -78,7 +77,10 @@ class _ProblemPageState extends State<ProblemPage> {
                 Text(
                   question['question'],
                   style: const TextStyle(
-                      fontSize: 40, fontWeight: FontWeight.bold),
+                    fontSize: 40,
+                    fontWeight: FontWeight.bold,
+                    color: Vx.white,
+                  ),
                 ),
               ],
             ),

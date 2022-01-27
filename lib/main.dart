@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:velocity_x/velocity_x.dart';
 import 'frontend/pages/home.dart';
 
 void main() async {
@@ -14,8 +15,10 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       theme: ThemeData(
-        scaffoldBackgroundColor: Colors.grey[100],
-        appBarTheme: AppBarTheme(color: Colors.grey[100]),
+        scaffoldBackgroundColor: Vx.black,
+        appBarTheme: AppBarTheme(
+          color: Colors.black,
+        ),
       ),
       home: Home(),
     );

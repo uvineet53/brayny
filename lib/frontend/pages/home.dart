@@ -13,84 +13,86 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   final alanController = Get.put(AlanController());
+  bool _greetingIsPlayed = false;
 
   @override
   void initState() {
     super.initState();
     AlanVoice.addButton(
-        "36cf10a045ad4f147daed15d057fa38b2e956eca572e1d8b807a3e2338fdd0dc/prod",
-        buttonAlign: AlanVoice.BUTTON_ALIGN_RIGHT);
+        "3331b67c2d29908a03a03c68e67bfd8e2e956eca572e1d8b807a3e2338fdd0dc/testing",
+        buttonAlign: AlanVoice.BUTTON_ALIGN_LEFT);
     AlanVoice.onCommand.add((command) {
       alanController.handleCommand(command.data);
+    });
+    AlanVoice.onButtonState.add((state) {
+      if (state.name == "ONLINE" && !_greetingIsPlayed) {
+        _greetingIsPlayed = true;
+        AlanVoice.activate();
+        AlanVoice.playText("Hello! I'm Brayny. How can I help you?");
+      }
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        drawer: Drawer(),
         appBar: AppBar(
           elevation: 0,
           title: HStack([
-            "Bray".text.black.xl3.make(),
-            "ny".text.yellow500.xl3.make(),
+            "BRAY".text.white.xl3.make(),
+            "NY".text.yellow500.xl3.make(),
           ]),
           centerTitle: true,
         ),
-        body: Center(
-          child: ListView(
-            shrinkWrap: true,
-            children: [
-              const Text(
-                "Learn Maths",
-                style: TextStyle(
-                  fontSize: 24,
-                ),
-              ),
-              VxSwiper.builder(
-                  itemCount: mathTrack.length,
-                  enlargeCenterPage: true,
-                  itemBuilder: (BuildContext context, int index) {
-                    return GestureDetector(
-                        key: Key(mathTrack[index]['id'].toString()),
-                        onTap: () {
-                          Get.to(ProblemPage(
-                              track: mathTrack[index]['track'].toString()));
-                        },
-                        child: VxBox(
-                          child: mathTrack[index]['title']
-                              .toString()
-                              .text
-                              .xl2
-                              .makeCentered(),
-                        ).width(context.width * .7).yellow300.rounded.make());
-                  }),
-              SizedBox(height: 40),
-              const Text(
-                "Learn English",
-                style: TextStyle(
-                  fontSize: 24,
-                ),
-              ),
-              VxSwiper.builder(
-                  itemCount: englishTrack.length,
-                  enlargeCenterPage: true,
-                  itemBuilder: (BuildContext context, int index) {
-                    return GestureDetector(
-                        key: Key(englishTrack[index]['id'].toString()),
-                        onTap: () {
-                          Get.to(ProblemPage(
-                              track: englishTrack[index]['track'].toString()));
-                        },
-                        child: VxBox(
-                          child: englishTrack[index]['title']
-                              .toString()
-                              .text
-                              .xl2
-                              .makeCentered(),
-                        ).width(context.width * .7).yellow300.rounded.make());
-                  }),
-            ],
-          ),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            "Learn Maths".text.xl2.bold.white.makeCentered(),
+            VxSwiper.builder(
+                itemCount: mathTrack.length,
+                enlargeCenterPage: true,
+                itemBuilder: (BuildContext context, int index) {
+                  return GestureDetector(
+                      key: Key(mathTrack[index]['id'].toString()),
+                      onTap: () {
+                        Get.to(ProblemPage(
+                            track: mathTrack[index]['track'].toString()));
+                      },
+                      child: VxBox(
+                        child: mathTrack[index]['title']
+                            .toString()
+                            .text
+                            .bold
+                            .xl2
+                            .white
+                            .makeCentered(),
+                      ).width(context.width * .7).gray700.rounded.make());
+                }),
+            "Learn English".text.xl2.bold.white.makeCentered(),
+            VxSwiper.builder(
+                itemCount: englishTrack.length,
+                enlargeCenterPage: true,
+                itemBuilder: (BuildContext context, int index) {
+                  return GestureDetector(
+                      key: Key(englishTrack[index]['id'].toString()),
+                      onTap: () {
+                        Get.to(ProblemPage(
+                            track: englishTrack[index]['track'].toString()));
+                      },
+                      child: VxBox(
+                        child: englishTrack[index]['title']
+                            .toString()
+                            .text
+                            .bold
+                            .xl2
+                            .makeCentered(),
+                      ).width(context.width * .7).yellow300.rounded.make());
+                }),
+            const SizedBox(
+              height: 25,
+            ),
+          ],
         ));
   }
 }

@@ -14,7 +14,7 @@ class QuizController extends GetxController {
     int a = random(10, 99);
     int b = random(10, 99);
     int result = a + b;
-    return {'question': '$a + $b', 'result': result};
+    return {'question': 'What is $a + $b ?', 'result': result};
   }
 
   Map<String, dynamic> oppositeQuiz() {
@@ -41,13 +41,13 @@ class QuizController extends GetxController {
     int a = random(1, 10);
     int b = random(1, 10);
     int result = a * b;
-    return {'question': '$a times $b', 'result': result};
+    return {'question': 'What is $a times $b ?', 'result': result};
   }
 
   Map<String, dynamic> squaresQuiz() {
     int a = random(1, 25);
     int result = a * a;
-    return {'question': '$a to the power 2', 'result': result};
+    return {'question': 'What is $a to the power 2?', 'result': result};
   }
 
   Map<String, dynamic> handlerFunction(String track) {

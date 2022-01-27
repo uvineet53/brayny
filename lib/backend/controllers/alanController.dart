@@ -28,13 +28,13 @@ class AlanController extends GetxController {
   }
 
   void handleQuestion(Map<String, dynamic> question) {
-    AlanVoice.playText("What is ${question['question']}");
+    AlanVoice.playText("${question['question']}");
   }
 
   void _handleAnswer(String response) {
     QuizController quizController = Get.put(QuizController());
     String result = quizController.getCurrentQuestion()['result'].toString();
-    if (response == result) {
+    if (response.trim() == result) {
       AlanVoice.playText("Correct Answer!");
     } else {
       AlanVoice.playText("Wrong Answer! The correct Answer is: $result");
