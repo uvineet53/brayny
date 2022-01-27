@@ -1,4 +1,4 @@
-const testTracks = [
+const mathTrack = [
   {
     'id': 0,
     'title': 'Addition',
@@ -16,6 +16,33 @@ const testTracks = [
     'id': 2,
     'title': 'Squares',
     'track': 'squares',
+    'image': "https://imgur.com/MFo2u0j.png"
+  }
+];
+
+const englishTrack = [
+  {
+    'id': 0,
+    'title': 'VOWELS & CONSONANTS',
+    'track': 'vowels and consonants',
+    'image': "https://imgur.com/MFo2u0j.png"
+  },
+  {
+    'id': 1,
+    'title': 'ARTICLES (A/AN/THE)',
+    'track': 'articles',
+    'image': "https://imgur.com/MFo2u0j.png"
+  },
+  {
+    'id': 2,
+    'title': 'THIS-THAT & THESE-THOSE',
+    'track': 'this that',
+    'image': "https://imgur.com/MFo2u0j.png"
+  },
+  {
+    'id': 3,
+    'title': 'OPPOSITES',
+    'track': 'opposites',
     'image': "https://imgur.com/MFo2u0j.png"
   },
 ];

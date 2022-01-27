@@ -38,17 +38,17 @@ class _HomeState extends State<Home> {
         ),
         body: Center(
           child: VxSwiper.builder(
-              itemCount: testTracks.length,
+              itemCount: mathTrack.length,
               enlargeCenterPage: true,
               itemBuilder: (BuildContext context, int index) {
                 return GestureDetector(
-                    key: Key(testTracks[index]['id'].toString()),
+                    key: Key(mathTrack[index]['id'].toString()),
                     onTap: () {
                       Get.to(ProblemPage(
-                          track: testTracks[index]['track'].toString()));
+                          track: mathTrack[index]['track'].toString()));
                     },
                     child: VxBox(
-                      child: testTracks[index]['title']
+                      child: mathTrack[index]['title']
                           .toString()
                           .text
                           .xl2
