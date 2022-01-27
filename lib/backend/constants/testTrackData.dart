@@ -35,8 +35,8 @@ const englishTrack = [
   },
   {
     'id': 2,
-    'title': 'THIS-THAT & THESE-THOSE',
-    'track': 'this that',
+    'title': 'RHYMING WORDS',
+    'track': 'rhyming words',
     'image': "https://imgur.com/MFo2u0j.png"
   },
   {
